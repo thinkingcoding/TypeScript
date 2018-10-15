@@ -173,7 +173,7 @@ obj.b = 2;  // Allowed
 与其它JS检查行为相似，这种行为可以通过指定JSDoc类型来改变，例如：
 
 ```js
-/** @type {{a: number}} */
+/** @type {% raw %}{{a: number}}{% endraw %} */
 var obj = { a: 1 };
 obj.b = 2;  // Error, type {a: number} does not have property b
 ```
@@ -386,7 +386,7 @@ var nas;
 例如，一个带有`a`（字符串）和`b`（数字）属性的对象，使用下面的语法：
 
 ```js
-/** @type {{ a: string, b: number }} */
+/** @type {% raw %}{{ a: string, b: number }}{% endraw %} */
 var var9;
 ```
 
@@ -515,7 +515,7 @@ function stringsStringStrings(p1, p2, p3, p4){
 function ps(){}
 
 /**
- * @returns {{ a: string, b: number }} - May use '@returns' as well as '@return'
+ * @returns {% raw %}{{ a: string, b: number }}{% endraw %} - May use '@returns' as well as '@return'
  */
 function ab(){}
 ```
@@ -584,7 +584,7 @@ const ok = s => !(s.length % 2);
 当然，所有这些类型都可以使用TypeScript的语法`@typedef`在一行上声明：
 
 ```js
-/** @typedef {{ prop1: string, prop2: string, prop3?: number }} SpecialType */
+/** @typedef {% raw %}{{ prop1: string, prop2: string, prop3?: number }}{% endraw %} SpecialType */
 /** @typedef {(data: string, index?: number) => boolean} Predicate */
 ```
 
@@ -616,7 +616,7 @@ function id(x){ return x }
 ```js
 /**
  * @template {string} K - K must be a string or string literal
- * @template {{ serious(): string }} Seriousalizable - must have a serious method
+ * @template {% raw %}{{ serious(): string }}{% endraw %} Seriousalizable - must have a serious method
  * @param {K} key
  * @param {Seriousalizable} object
  */
@@ -737,14 +737,14 @@ let myArrow = x => x * x;
 
 /**
  * Which means it works for stateless function components in JSX too
- * @param {{a: string, b: number}} test - Some param
+ * @param {% raw %}{{a: string, b: number}}{% endraw %} test - Some param
  */
 var sfc = (test) => <div>{test.a.charAt(0)}</div>;
 
 /**
  * A parameter can be a class constructor, using Closure syntax.
  *
- * @param {{new(...args: any[]): object}} C - The class to register
+ * @param {% raw %}{{new(...args: any[]): object}}{% endraw %} C - The class to register
  */
 function registerClass(C) {}
 
@@ -784,12 +784,12 @@ var right;
 
 ```js
 /**
- * @type {{ a: string, b: number= }}
+ * @type {% raw %}{{ a: string, b: number= }}{% endraw %}
  */
 var wrong;
 /**
  * Use postfix question on the property name instead:
- * @type {{ a: string, b?: number }}
+ * @type {% raw %}{{ a: string, b?: number }}{% endraw %}
  */
 var right;
 ```

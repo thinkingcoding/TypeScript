@@ -348,7 +348,7 @@ import {MyModel} from "./model"
 
 @Component({
     selector: `my-app`,
-    template: `<div>Hello from {{getCompiler()}}</div>`
+    template: `<div>Hello from {% raw %}{{getCompiler()}}{% endraw %}</div>`
 })
 export class MyApp {
     model = new MyModel();
